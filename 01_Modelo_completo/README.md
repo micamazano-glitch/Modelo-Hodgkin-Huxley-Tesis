@@ -17,10 +17,10 @@ $$
 El cuaderno incluye:
 
 - **Corriente variable en el tiempo:** simulación con una corriente aplicada por tramos de 6.75, 12 y 6.76 µA/cm², durante 300 ms.
-- **Corrientes próximas al valor crítico de Hopf:** simulaciones para ocho valores de corriente alrededor de \(I_H\approx 6.752633\) µA/cm², durante 500 ms.
+- **Corrientes próximas al valor crítico de Hopf:** simulaciones para ocho valores de corriente alrededor de $I_H\approx 6.752633$ µA/cm², durante 500 ms.
 - **Evaluación cuantitativa:** cálculo del error máximo absoluto y del error RMS, incluyendo un análisis después de descartar el transitorio inicial.
 - **Comprobación numérica:** comparación de los errores obtenidos utilizando distintos pasos máximos de integración.
 
 Se incluyen los códigos, las tablas de resultados y las gráficas correspondientes.
 
-El valor \(I_H\) corresponde al modelo reducido bidimensional y se utiliza como referencia para las simulaciones del modelo completo.
+El valor $I_H$ corresponde al modelo reducido bidimensional y se utiliza como referencia para las simulaciones del modelo completo.
