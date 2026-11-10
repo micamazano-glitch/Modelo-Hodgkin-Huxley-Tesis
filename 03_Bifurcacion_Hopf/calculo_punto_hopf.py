@@ -343,3 +343,78 @@ plt.savefig(
 )
 
 plt.show()
+
+# =====================================================
+# 10. COMPROBACION DE ESTABILIDAD NUMERICA
+# DEL PUNTO CRITICO DE HOPF
+# =====================================================
+
+print("\n" + "="*65)
+print("ESTABILIDAD NUMERICA DEL PUNTO DE HOPF")
+print("="*65)
+
+# Pasos de diferenciacion numerica
+pasos = [1e-3, 1e-4, 1e-5, 1e-6]
+
+resultados = []
+
+for paso in pasos:
+
+    # Condiciones de Hopf con el paso seleccionado
+    def condiciones_hopf_paso(z):
+
+        V, n, Iapp = z
+
+        F = sistema([V, n], Iapp)
+
+        J = jacobiano(V, n, Iapp, paso=paso)
+
+        return [
+            F[0],
+            F[1],
+            np.trace(J)
+        ]
+
+    # Resolver nuevamente las condiciones de Hopf
+    sol = root(
+        condiciones_hopf_paso,
+        [VH, nH, IH],
+        tol=1e-10
+    )
+
+    error = np.linalg.norm(
+        condiciones_hopf_paso(sol.x),
+        ord=np.inf
+    )
+
+    if error > 1e-7:
+        raise RuntimeError(
+            f"No se pudo verificar el paso {paso}"
+        )
+
+    V_p, n_p, I_p = sol.x
+
+    resultados.append((paso, I_p, error))
+
+
+# Tabla de resultados
+print(f"{'Paso':>12} {'I_H':>18} {'Residuo':>18}")
+print("-"*50)
+
+for paso, I_p, error in resultados:
+    print(f"{paso:12.0e} {I_p:18.9f} {error:18.3e}")
+
+
+# Diferencia maxima entre valores calculados
+valores_I = np.array([
+    resultado[1] for resultado in resultados
+])
+
+diferencia_maxima = (
+    np.max(valores_I) - np.min(valores_I)
+)
+
+print("\nDiferencia maxima entre valores de I_H:")
+print(f"{diferencia_maxima:.12e}")
+
+print("\nComprobacion finalizada.")
