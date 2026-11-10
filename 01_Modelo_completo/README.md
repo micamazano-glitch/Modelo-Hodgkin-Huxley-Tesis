@@ -10,9 +10,9 @@ las variables V, m, h y n.
 
 Se incorpora un cuaderno de Google Colab que contiene simulaciones adicionales del modelo completo de Hodgkin–Huxley para estudiar el comportamiento del error de la aproximación lineal:
 
-\[
+$$
 h(t)\approx 0.89-1.1n(t).
-\]
+$$
 
 El cuaderno incluye:
 
