@@ -18,7 +18,7 @@ G_K = 36.0         # mS/cm^2
 G_L = 0.3          # mS/cm^2
 E_Na = 50.0        # mV
 E_K = -77.0        # mV
-E_L = -54.4        # mV
+E_L = -54.387        # mV
 I_app = 12.0       # microA/cm^2
 
 
