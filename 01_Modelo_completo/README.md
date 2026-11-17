@@ -6,6 +6,8 @@ utilizados para la simulación numérica del
 modelo completo de Hodgkin-Huxley, con
 las variables V, m, h y n.
 
+Se incluyen los códigos Python utilizados para representar las funciones de velocidad de activación e inactivación del sodio y de activación del potasio del modelo de Hodgkin–Huxley, correspondientes a las Figuras 4.10, 4.11 y 4.12 de la tesis. Las gráficas fueron elaboradas utilizando las bibliotecas NumPy y Matplotlib.
+
 ### Validación de la aproximación lineal con corrientes variables y próximas a Hopf
 
 Se incorpora un cuaderno de Google Colab que contiene simulaciones adicionales del modelo completo de Hodgkin–Huxley para estudiar el comportamiento del error de la aproximación lineal:
